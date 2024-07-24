@@ -28,5 +28,9 @@ btn3.grid(row=0, column=2, sticky=tk.W+tk.E)
 
 buttonframe.pack(fill=tk.X)
 
-root.mainloop()#runs the program
+#root.mainloop()#runs the program
 
+c_walls = [True,False,False]
+to_walls = [False]
+if any(c_walls) and any(to_walls):
+    print("it works")

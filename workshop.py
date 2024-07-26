@@ -1,5 +1,6 @@
 from tkinter import Tk, BOTH, Canvas
 import tkinter as tk
+import random
 
 root = tk.Tk() #initializes Tk
 
@@ -30,7 +31,7 @@ buttonframe.pack(fill=tk.X)
 
 #root.mainloop()#runs the program
 
-c_walls = [True,False,False]
+c_walls = [True,False, True, False, True]
 to_walls = [False]
-if any(c_walls) and any(to_walls):
-    print("it works")
+break_wall = random.randint(0, len(c_walls)-1)
+print(break_wall)

@@ -20,6 +20,8 @@ class Cell:
         self._y1 = y1
         self._y2 = y2
         
+        #broken cell walls are redrawn in white
+        #removing the walls in memory does not update the canvas
         if self.has_left_wall:
             line = Line(Point(x1, y1), Point(x1, y2))
             self._win.draw_line(line)

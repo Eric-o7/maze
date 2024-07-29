@@ -48,18 +48,15 @@ class Cell:
             self._win.draw_line(line, "white")
     
     def draw_move(self, to_cell, undo=False):
-        if undo:
-            fill = "red"
-        else:
-            fill = "gray"
+        fill = "red" if undo else "green"
         center_self = Point(((self._x1+self._x2)/2),((self._y1+self._y2)/2))
         center_to_cell = Point(((to_cell._x1+to_cell._x2)/2),((to_cell._y1+to_cell._y2)/2))
         line = Line(center_self, center_to_cell)
-        if self.has_bottom_wall == False and to_cell.has_top_wall == False:
-            self._win.draw_line(line, fill)
-        elif self.has_top_wall == False and to_cell.has_bottom_wall == False:
-            self._win.draw_line(line, fill)
-        elif self.has_right_wall == False and to_cell.has_left_wall == False:
-            self._win.draw_line(line, fill)
-        elif self.has_left_wall == False and to_cell.has_right_wall == False:
-            self._win.draw_line(line, fill)
+        if self._x1 == to_cell._x2 and self.has_left_wall == False and to_cell.has_right_wall == False:
+            self._win.draw_line(line, fill)  # Moving left
+        elif self._x2 == to_cell._x1 and self.has_right_wall == False and to_cell.has_left_wall == False:
+            self._win.draw_line(line, fill)  # Moving right
+        elif self._y1 == to_cell._y2 and self.has_top_wall == False and to_cell.has_bottom_wall == False:
+            self._win.draw_line(line, fill)  # Moving up
+        elif self._y2 == to_cell._y1 and self.has_bottom_wall == False and to_cell.has_top_wall == False:
+            self._win.draw_line(line, fill) #Moving down

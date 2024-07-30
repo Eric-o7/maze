@@ -6,20 +6,20 @@ class Window:
         self.__root = Tk()
         self.__root.title("Maze Generator Solver")
         self.__canvas = Canvas(self.__root, bg="white", height=height, width=width)
-        self.__canvas.pack(fill=BOTH, expand=1)
+        self.__canvas.pack(fill=BOTH, expand=2)
         self.__operating = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
 
         
     def redraw(self):
-        self.__root.update_idletasks()
+        # self.__root.update_idletasks()
         self.__root.update() 
         
     def wait_for_close(self):
         self.__operating = True
         while self.__operating:
             self.redraw()
-        print("window closed...")
+        print("Window closed")
             
     def close(self):
         self.__operating = False
@@ -39,7 +39,7 @@ class Line:
         
     def draw(self, canvas, fill_color="black"):
         canvas.create_line(self.p1.x, self.p1.y, self.p2.x, self.p2.y,
-                           fill=fill_color, width=1
+                           fill=fill_color, width=1.25
                            )
         
 

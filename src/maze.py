@@ -50,7 +50,7 @@ class Maze():
         if self._win is None:
             return
         self._win.redraw()
-        time.sleep(0.009)
+        time.sleep(0.0005)
     
     def _break_entrance_and_exit(self):
         break_wall = random.randint(1, 2)
